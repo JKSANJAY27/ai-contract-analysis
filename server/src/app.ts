@@ -8,6 +8,9 @@ import morgan from 'morgan';
 import mongoose from 'mongoose';
 
 const app = express();
+
+mongoose.connect(process.env.MONGODB_URI!).then(()=> console.log("Connected to MongoDB")).catch((err)=> console.log(err));
+
 app.use(cors());
 app.use(helmet());
 app.use(morgan("dev"));
